@@ -1,39 +1,50 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+<p align="center">
+ <img width="500" src="https://user-images.githubusercontent.com/59066341/140976777-712cd333-9f82-4f92-8e03-33cb93f18650.png" alt="Package Logo">
+ <br>
+ <a href="https://pub.dev/packages/hidable">
+  <img src="https://img.shields.io/pub/v/hidable?color=blue" alt="pub version" />
+ </a>
+ <a href="https://github.com/theiskaa/hidable/blob/main/LICENSE">
+  <img src="https://img.shields.io/badge/License-Apache-red.svg" alt="License: MIT"/>
+ </a>
+</p>
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+## Usage & Overview
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+<img width="300" src="https://user-images.githubusercontent.com/59066341/140974710-bfd27779-be3e-4068-aa80-46b2ff4d07ad.gif" alt="Package Example Overview">
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+To start using `Hidable` widget, we have to create a `ScrollController`. inctance before.
 ```dart
-const like = 'sample';
+final ScrollController scrollController = ScrollController();
+```
+As case of usage, we should have one scrollable widget (SingleChildScrollView, ListView etc)
+and one static located widget (AppBar, BottomNavBar etc) which'd be wrapped with `Hidable` widget.
+
+So, `scrollController` which we created before must be given to each one (scrollable widget and static located hidable widget).
+
+#### Scrollable widget
+```dart
+ListView.separated(
+  // General scroll controller which makes bridge between
+  // This ListView and Hidable widget.
+  controller: scrollController,
+  itemCount: colors.length,
+  itemBuilder: (_, i) => Container(
+     height: 50,
+     color: colors[i].withOpacity(.6),
+  ),
+  separatorBuilder: (_, __) => const SizedBox(height: 10),
+),
 ```
 
-## Additional information
+#### Static located hidable widget
+```dart
+Hidable(
+  controller: scrollController,
+  wOpacity: true, // As default it's true.
+  size: 56, // As default it's 56.
+  child: BottomNavigationBar(...),
+),
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+**That is the common usage of hidable, and also you can find full code implmenetation of hidable at** [official example file](https://github.com/theiskaa/hidable/blob/main/example/main.dart).
