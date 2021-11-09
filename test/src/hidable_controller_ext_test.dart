@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hidable/hidable.dart';
+import 'package:hidable/src/hidable_controller.dart';
 import 'package:hidable/src/hidable_controller_ext.dart';
 
 void main() {
@@ -16,7 +16,9 @@ void main() {
       final hidable = scrollController.hidable(kBottomNavigationBarHeight);
       expect(hidable.runtimeType, HidableController);
 
-      final reCreatedHidable = scrollController.hidable(kBottomNavigationBarHeight);
+      final reCreatedHidable = scrollController.hidable(
+        kBottomNavigationBarHeight,
+      );
       expect(hidable, reCreatedHidable);
     });
   });

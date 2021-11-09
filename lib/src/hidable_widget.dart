@@ -61,7 +61,7 @@ class Hidable extends StatelessWidget {
       child: Material(
         elevation: 8.0,
         child: Container(
-          height: hidable.height,
+          height: hidable.size,
           decoration: const BoxDecoration(color: Colors.transparent),
           child: wOpacity ? Opacity(opacity: factor, child: child) : child,
         ),
