@@ -47,4 +47,4 @@ Hidable(
 ),
 ```
 
-**That is the common usage of hidable, and also you can find full code implmenetation of hidable at** [official example file](https://github.com/theiskaa/hidable/blob/main/example/main.dart).
+**That is the common usage of hidable, and also you can find full code implmenetation of hidable at** [official example page](https://github.com/theiskaa/hidable/blob/main/example/main.dart).
