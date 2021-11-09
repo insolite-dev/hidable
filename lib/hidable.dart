@@ -1,3 +1,3 @@
 library hidable;
 
-export 'src/hidable_controller.dart';
+export 'src/hidable_widget.dart';
