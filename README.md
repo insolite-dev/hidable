@@ -1,5 +1,5 @@
 <p align="center">
- <img width="350" src="" alt="Package Logo">
+ <img width="500" src="https://user-images.githubusercontent.com/59066341/140976777-712cd333-9f82-4f92-8e03-33cb93f18650.png" alt="Package Logo">
  <br>
  <a href="https://pub.dev/packages/hidable">
   <img src="https://img.shields.io/pub/v/hidable?color=blue" alt="pub version" />
@@ -20,7 +20,7 @@ final ScrollController scrollController = ScrollController();
 As case of usage, we should have one scrollable widget (SingleChildScrollView, ListView etc)
 and one static located widget (AppBar, BottomNavBar etc) which'd be wrapped with `Hidable` widget.
 
-So, `scrollController` which we created before must be given to the scrollable widget and static located hidable widget.
+So, `scrollController` which we created before must be given to each one (scrollable widget and static located hidable widget).
 
 #### Scrollable widget
 ```dart
