@@ -1,1 +1,3 @@
-void main() {}
+void main() {
+    // Test can be found in test/src/ ...
+}

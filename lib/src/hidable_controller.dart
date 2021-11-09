@@ -62,7 +62,7 @@ class HidableController {
     sizeNotifier.value = sizeFactor();
   }
 
-  void dispose() {
+  void close() {
     stickinessNotifier.dispose();
     sizeNotifier.dispose();
   }
