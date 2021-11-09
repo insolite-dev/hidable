@@ -21,7 +21,7 @@ void main() {
 
         expect(find.byType(Align), findsOneWidget);
         expect(find.byType(Material), findsNWidgets(2));
-        expect(find.byType(Container), findsNWidgets(2));
+        expect(find.byType(SizedBox), findsOneWidget);
         expect(find.byType(Opacity), findsOneWidget);
 
         scrollController.jumpTo(10);

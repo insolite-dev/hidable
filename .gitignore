@@ -29,6 +29,7 @@
 .packages
 .metadata
 .pub-cache/
+coverage/
 .pub/
 build/
 
