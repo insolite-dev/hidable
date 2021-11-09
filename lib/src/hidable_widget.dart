@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hidable/src/hidable_controller_ext.dart';
 
-
 /// Widget that can make anything hidable.
 ///
 /// Wrap your static located widget with [Hidable],
@@ -60,9 +59,8 @@ class Hidable extends StatelessWidget {
       alignment: const Alignment(0, -1),
       child: Material(
         elevation: 8.0,
-        child: Container(
+        child: SizedBox(
           height: hidable.size,
-          decoration: const BoxDecoration(color: Colors.transparent),
           child: wOpacity ? Opacity(opacity: factor, child: child) : child,
         ),
       ),
