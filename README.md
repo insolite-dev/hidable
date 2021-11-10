@@ -9,6 +9,8 @@
  </a>
 </p>
 
+## Installing
+**See the official installing guidline from [hidable/install](https://pub.dev/packages/hidable/install)**
 ## Usage & Overview
 
 <img width="300" src="https://user-images.githubusercontent.com/59066341/140974710-bfd27779-be3e-4068-aa80-46b2ff4d07ad.gif" alt="Package Example Overview">

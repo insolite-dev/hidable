@@ -1,3 +1,13 @@
+# v1.0.1 - (10/11/2021)
+
+<p align="center">
+ <img width="300" src="https://user-images.githubusercontent.com/59066341/140976777-712cd333-9f82-4f92-8e03-33cb93f18650.png" alt="Package Logo">
+</p>
+
+- Resolved: [#3](https://github.com/anonistas/hidable/issues/3) and [#4](https://github.com/anonistas/hidable/issues/4)
+
+- Upgraded documentation comments and pub points of package.
+
 # v1.0.0 - (09/11/2021)
 
 <p align="center">
