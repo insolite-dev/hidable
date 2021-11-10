@@ -2,6 +2,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
+/// A custom wrapper for scroll controller.
+///
+/// It've state notifiers and it's default scroll listener, Which used as default scrolling action.
 class HidableController {
   /// The main scroll controller.
   ScrollController scrollController;
@@ -16,6 +19,8 @@ class HidableController {
     scrollController.addListener(listener);
   }
 
+  double li = 0.0, lastOffset = 0.0;
+
   /// The main value notifier of widget's size.
   final sizeNotifier = ValueNotifier<double>(1.0);
 
@@ -27,10 +32,10 @@ class HidableController {
   /// Basically, used to enable/disable stickness of widget.
   void setStickinessState(bool state) => stickinessNotifier.value = state;
 
-  double li = 0.0, lastOffset = 0.0;
+  /// Took size factor from "li" and "size".
   double sizeFactor() => 1.0 - (li / size);
 
-  /// Default listener that detects up/down scrolls and alerts size's value-notifier.
+  /// Default listener that detects movments on the screen, and alerts size's value-notifier.
   void listener() {
     final p = scrollController.position;
 
@@ -62,6 +67,7 @@ class HidableController {
     sizeNotifier.value = sizeFactor();
   }
 
+  /// Closes size and stickness notifiers.
   void close() {
     stickinessNotifier.dispose();
     sizeNotifier.dispose();
