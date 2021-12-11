@@ -7,6 +7,11 @@
  <a href="https://github.com/theiskaa/hidable/blob/main/LICENSE">
   <img src="https://img.shields.io/badge/License-Apache-red.svg" alt="License: MIT"/>
  </a>
+ <br>
+  <a href="https://discord.gg/CtStkzrHV3">
+    <img src="https://img.shields.io/discord/914899238415130714?color=blue&label=Anon Community&logo=discord"
+      alt="Anoncord" />
+  </a>   
 </p>
 
 ## Installing
