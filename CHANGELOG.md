@@ -1,3 +1,7 @@
+# v1.0.2 - (18/01/2022)
+
+- Resolved [#6](https://github.com/anonistas/hidable/issues/6)
+
 # v1.0.1 - (10/11/2021)
 
 <p align="center">
