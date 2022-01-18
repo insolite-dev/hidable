@@ -17,7 +17,8 @@ class Example extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example> {
-  final colors = [Colors.red, Colors.blue, Colors.yellow, Colors.green];
+  static const colorsPath = [Colors.red, Colors.blue, Colors.yellow, Colors.green];
+  final colors = [...colorsPath, ...colorsPath];
 
   int index = 0;
 

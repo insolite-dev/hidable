@@ -1,3 +1,7 @@
+// Copyright 2021-2022 present Anon. All rights reserved.
+// Use of this source code is governed by Apache 2.0 license
+// that can be found in the LICENSE file.
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +24,6 @@ void main() {
         await tester.pumpWidget(TestWidget(scrollController: scrollController));
 
         expect(find.byType(Align), findsOneWidget);
-        expect(find.byType(Material), findsNWidgets(2));
         expect(find.byType(SizedBox), findsOneWidget);
         expect(find.byType(Opacity), findsOneWidget);
 

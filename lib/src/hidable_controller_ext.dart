@@ -1,3 +1,7 @@
+// Copyright 2021-2022 present Anon. All rights reserved.
+// Use of this source code is governed by Apache 2.0 license
+// that can be found in the LICENSE file.
+
 import 'package:flutter/widgets.dart';
 
 import 'hidable_controller.dart';
@@ -6,7 +10,7 @@ import 'hidable_controller.dart';
 extension HidableControllerExt on ScrollController {
   static final hidableControllers = <int, HidableController>{};
 
-  /// Shortcut way of creating hidable controller.
+  /// Shortcut way of creating hidable controller
   HidableController hidable(size) {
     // If the same instance was created before, we should keep using it.
     if (hidableControllers.containsKey(hashCode)) {

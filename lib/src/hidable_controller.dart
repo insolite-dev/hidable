@@ -1,10 +1,14 @@
+// Copyright 2021-2022 present Anon. All rights reserved.
+// Use of this source code is governed by Apache 2.0 license
+// that can be found in the LICENSE file.
+
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
 /// A custom wrapper for scroll controller.
 ///
-/// It've state notifiers and it's default scroll listener, Which used as default scrolling action.
+/// It have state notifiers and it's default scroll listener, Which used as default scrolling detection.
 class HidableController {
   /// The main scroll controller.
   ScrollController scrollController;
@@ -35,7 +39,7 @@ class HidableController {
   /// Took size factor from "li" and "size".
   double sizeFactor() => 1.0 - (li / size);
 
-  /// Default listener that detects movments on the screen, and alerts size's value-notifier.
+  /// Default listener that detects movements on the screen, and alerts size's value-notifier.
   void listener() {
     final p = scrollController.position;
 

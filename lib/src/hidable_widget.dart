@@ -1,3 +1,7 @@
+// Copyright 2021-2022 present Anon. All rights reserved.
+// Use of this source code is governed by Apache 2.0 license
+// that can be found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 import 'package:hidable/src/hidable_controller_ext.dart';
 
@@ -11,7 +15,7 @@ import 'package:hidable/src/hidable_controller_ext.dart';
 ///
 /// #### For more information refer to - [documentation](https://github.com/anonistas/hidable#readme)
 class Hidable extends StatelessWidget {
-  /// Child widget, which you wannt to add scroll-to-hide effect to it.
+  /// Child widget, which you want to add scroll-to-hide effect to it.
   ///
   /// It should be static located widget, (BottomNavigationBar, AppBar).
   final Widget child;
@@ -61,12 +65,9 @@ class Hidable extends StatelessWidget {
     return Align(
       heightFactor: factor,
       alignment: const Alignment(0, -1),
-      child: Material(
-        elevation: 8.0,
-        child: SizedBox(
-          height: hidable.size,
-          child: wOpacity ? Opacity(opacity: factor, child: child) : child,
-        ),
+      child: SizedBox(
+        height: hidable.size,
+        child: wOpacity ? Opacity(opacity: factor, child: child) : child,
       ),
     );
   }
