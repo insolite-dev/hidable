@@ -26,9 +26,6 @@ class Hidable extends StatelessWidget with PreferredSizeWidget {
   /// It must be given to your scrollable widget.
   final ScrollController controller;
 
-  /// The size (height) of widget that you provide as [child].
-  final double size;
-
   /// Enable/Disable opacity animation. As default it's enabled (true).
   final bool wOpacity;
 
@@ -36,23 +33,22 @@ class Hidable extends StatelessWidget with PreferredSizeWidget {
   ///
   /// As default the preferred size is is the [AppBar]'s `preferredSize`.
   /// (56 heights with page-size width).
-  final Size? preferredWidgetSize;
+  final Size preferredWidgetSize;
 
   const Hidable({
     Key? key,
     required this.child,
     required this.controller,
-    this.size = kBottomNavigationBarHeight,
     this.wOpacity = true,
-    this.preferredWidgetSize,
+    this.preferredWidgetSize = const Size.fromHeight(56),
   }) : super(key: key);
 
   @override
-  Size get preferredSize => preferredWidgetSize ?? const Size.fromHeight(56);
+  Size get preferredSize => preferredWidgetSize;
 
   @override
   Widget build(BuildContext context) {
-    final hidable = controller.hidable(size);
+    final hidable = controller.hidable(preferredWidgetSize.height);
 
     return ValueListenableBuilder<bool>(
       valueListenable: hidable.stickinessNotifier,
