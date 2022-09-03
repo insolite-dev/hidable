@@ -18,7 +18,7 @@
 **See the official installing guidline from [hidable/install](https://pub.dev/packages/hidable/install)**
 ## Usage & Overview
 
-<img width="300" src="https://user-images.githubusercontent.com/59066341/140974710-bfd27779-be3e-4068-aa80-46b2ff4d07ad.gif" alt="Package Example Overview">
+<img width="300" src="https://user-images.githubusercontent.com/59066341/188278709-d9879bfe-b473-4b2c-b53b-6fbe97d35ad3.gif" alt="Package Example Overview">
 
 To start using `Hidable` widget, we have to create a `ScrollController`. inctance before.
 ```dart
@@ -49,7 +49,6 @@ ListView.separated(
 Hidable(
   controller: scrollController,
   wOpacity: true, // As default it's true.
-  size: 56, // As default it's 56.
   child: BottomNavigationBar(...),
 ),
 ```
