@@ -10,29 +10,36 @@ import 'package:hidable/hidable.dart';
 class TestWidget extends StatelessWidget {
   final bool wOpacity;
   final ScrollController scrollController;
+  final bool wAppBar;
 
   const TestWidget({
     Key? key,
     required this.scrollController,
     this.wOpacity = true,
+    this.wAppBar = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: !wAppBar
+            ? null
+            : Hidable(child: AppBar(), controller: scrollController),
         body: ListView(
           controller: scrollController,
           children: List.generate(30, (index) => Text('Text $index')).toList(),
         ),
-        bottomNavigationBar: Hidable(
-          controller: scrollController,
-          wOpacity: wOpacity,
-          child: Container(
-            height: kBottomNavigationBarHeight,
-            color: Colors.black,
-          ),
-        ),
+        bottomNavigationBar: wAppBar
+            ? null
+            : Hidable(
+                controller: scrollController,
+                wOpacity: wOpacity,
+                child: Container(
+                  height: kBottomNavigationBarHeight,
+                  color: Colors.black,
+                ),
+              ),
       ),
     );
   }
