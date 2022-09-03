@@ -11,13 +11,14 @@ import 'package:hidable/src/hidable_controller_ext.dart';
 /// then your widget will support scroll to hide/show feature.
 ///
 /// Note: scroll controller that you give to [Hidable], also must be given to your scrollable widget,
-/// It could, ListView, GridView, etc.
+/// It could, [ListView], [GridView], etc.
 ///
 /// #### For more information refer to - [documentation](https://github.com/anonistas/hidable#readme)
-class Hidable extends StatelessWidget {
+class Hidable extends StatelessWidget with PreferredSizeWidget {
   /// Child widget, which you want to add scroll-to-hide effect to it.
   ///
-  /// It should be static located widget, (BottomNavigationBar, AppBar).
+  /// It should be static located widget:
+  /// [BottomNavigationBar], [FloatingActionButton], [AppBar] etc.
   final Widget child;
 
   /// The main scroll controller to listen user's scrolls.
@@ -25,24 +26,29 @@ class Hidable extends StatelessWidget {
   /// It must be given to your scrollable widget.
   final ScrollController controller;
 
-  /// The size (height) of widget that you provide as [child].
-  final double size;
-
   /// Enable/Disable opacity animation. As default it's enabled (true).
   final bool wOpacity;
+
+  /// A customization field for [Hidable]'s `preferredSize`.
+  ///
+  /// As default the preferred size is is the [AppBar]'s `preferredSize`.
+  /// (56 heights with page-size width).
+  final Size preferredWidgetSize;
 
   const Hidable({
     Key? key,
     required this.child,
     required this.controller,
-    this.size = kBottomNavigationBarHeight,
     this.wOpacity = true,
+    this.preferredWidgetSize = const Size.fromHeight(56),
   }) : super(key: key);
 
   @override
+  Size get preferredSize => preferredWidgetSize;
+
+  @override
   Widget build(BuildContext context) {
-    // Create general hidable controller by size.
-    final hidable = controller.hidable(size);
+    final hidable = controller.hidable(preferredWidgetSize.height);
 
     return ValueListenableBuilder<bool>(
       valueListenable: hidable.stickinessNotifier,
