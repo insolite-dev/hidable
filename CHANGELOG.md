@@ -1,14 +1,14 @@
 # v1.0.3 - 03/09/2022
 
-- Resolved [#10](https://github.com/anonistas/hidable/issues/10)
+- Resolved [#10](https://github.com/insolite-dev/hidable/issues/10)
 
 # v1.0.2 - 18/01/2022
 
-- Resolved [#6](https://github.com/anonistas/hidable/issues/6)
+- Resolved [#6](https://github.com/insolite-dev/hidable/issues/6)
 
 # v1.0.1 - 10/11/2021
 
-- Resolved: [#3](https://github.com/anonistas/hidable/issues/3) and [#4](https://github.com/anonistas/hidable/issues/4)
+- Resolved: [#3](https://github.com/insolite-dev/hidable/issues/3) and [#4](https://github.com/insolite-dev/hidable/issues/4)
 - Updated documentation comments and pub points of package.
 
 # v1.0.0 - 09/11/2021

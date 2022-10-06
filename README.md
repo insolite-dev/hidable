@@ -9,8 +9,8 @@
  </a>
  <br>
   <a href="https://discord.gg/CtStkzrHV3">
-    <img src="https://img.shields.io/discord/914899238415130714?color=blue&label=Anon Community&logo=discord"
-      alt="Anoncord" />
+    <img src="https://img.shields.io/discord/914899238415130714?color=blue&label=Insolite Community&logo=discord"
+      alt="Insolite Community Discord Invite Link" />
   </a>   
 </p>
 
