@@ -5,7 +5,7 @@
 //
 
 import 'package:flutter/material.dart';
-import 'package:hidable/src/hidable_controller_ext.dart';
+import 'package:hidable/src/hidable_controller.dart';
 
 /// Hidable is a widget that makes any static located widget hideable while scrolling.
 ///
@@ -51,6 +51,8 @@ class Hidable extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: implement artificial scroll place to controller it it blocks.
+
     final hidable = controller.hidable(preferredWidgetSize.height);
 
     return ValueListenableBuilder<double>(
