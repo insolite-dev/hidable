@@ -7,8 +7,9 @@
 import 'package:flutter/material.dart';
 import 'package:hidable/src/hidable_controller_ext.dart';
 
-/// ### Widget that can make anything hidable.
+/// Hidable is a widget that makes any static located widget hideable while scrolling.
 ///
+/// To Use:
 /// Wrap your static located widget with [Hidable],
 /// then your widget will support scroll to hide/show feature.
 ///
@@ -52,30 +53,15 @@ class Hidable extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     final hidable = controller.hidable(preferredWidgetSize.height);
 
-    return ValueListenableBuilder<bool>(
-      valueListenable: hidable.stickinessNotifier,
-      builder: (_, isStickinessEnabled, __) {
-        // If stickiness of hidable was enabled, return card with one factor.
-        // So, that hidable's movement would be disabled.
-        if (isStickinessEnabled) return hidableCard(1.0, hidable);
-
-        return ValueListenableBuilder<double>(
-          valueListenable: hidable.sizeNotifier,
-          builder: (_, height, __) => hidableCard(height, hidable),
-        );
-      },
-    );
-  }
-
-  // Custom alignment wrapper card of hidable.
-  // Returns whole card at given factor.
-  Widget hidableCard(double factor, hidable) {
-    return Align(
-      heightFactor: factor,
-      alignment: const Alignment(0, -1),
-      child: SizedBox(
-        height: hidable.size,
-        child: wOpacity ? Opacity(opacity: factor, child: child) : child,
+    return ValueListenableBuilder<double>(
+      valueListenable: hidable.sizeNotifier,
+      builder: (_, factor, __) => Align(
+        heightFactor: factor,
+        alignment: const Alignment(0, -1),
+        child: SizedBox(
+          height: hidable.size,
+          child: wOpacity ? Opacity(opacity: factor, child: child) : child,
+        ),
       ),
     );
   }
