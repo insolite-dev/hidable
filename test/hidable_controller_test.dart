@@ -6,9 +6,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hidable/src/hidable_controller.dart';
 
-// ignore: avoid_relative_lib_imports
-import '../../lib/src/hidable_controller_ext.dart';
 import 'test_widget.dart';
 
 void main() {
@@ -22,17 +21,20 @@ void main() {
     controllerFromHidable = controller.hidable(kSize).scrollController;
   });
 
-  group("HidableController", () {
-    test('setting stickiness should work correctly', () {
-      final hidable = controller.hidable(kSize);
 
-      hidable.setStickinessState(true);
-      expect(controller.hidable(kSize).stickinessNotifier.value, true);
+  group("HidableControllerExt", () {
+    test('should generate hidable controller from scroll controller', () {
+      final hidable = controller.hidable(kBottomNavigationBarHeight);
+      expect(hidable.runtimeType, HidableController);
 
-      hidable.setStickinessState(false);
-      expect(controller.hidable(kSize).stickinessNotifier.value, false);
+      final reCreatedHidable = controller.hidable(
+        kBottomNavigationBarHeight,
+      );
+      expect(hidable, reCreatedHidable);
     });
+  });
 
+  group("HidableController", () {
     test('size factor should return right value', () {
       final hidable = controller.hidable(kSize);
 
