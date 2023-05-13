@@ -1,3 +1,8 @@
+# v1.0.4 - 14/05/2023
+
+- Migrated to Flutter 3.10 and Dart 3
+  - Resolved [#17](https://github.com/insolite-dev/hidable/issues/17)
+
 # v1.0.3 - 03/09/2022
 
 - Resolved [#10](https://github.com/insolite-dev/hidable/issues/10)
