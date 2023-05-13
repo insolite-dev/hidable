@@ -17,7 +17,7 @@ import 'package:hidable/src/hidable_controller.dart';
 /// It could, [ListView], [GridView], etc.
 ///
 /// #### For more information refer to - [documentation](https://github.com/insolite-dev/hidable#readme)
-class Hidable extends StatelessWidget with PreferredSizeWidget {
+class Hidable extends StatelessWidget implements PreferredSizeWidget {
   /// Child widget, which you want to add scroll-to-hide effect to it.
   ///
   /// It should be static located widget:
