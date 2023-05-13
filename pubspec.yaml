@@ -1,6 +1,6 @@
 name: hidable
 description: Widget, that can make any static located widget hidable (scroll to hide).
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/insolite-dev/hidable
 issue_tracker: https://github.com/insolite-dev/hidable/issues
 documentation: https://github.com/insolite-dev/hidable#readme
