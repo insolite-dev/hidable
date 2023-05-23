@@ -48,7 +48,7 @@ ListView.separated(
 ```dart
 Hidable(
   controller: scrollController,
-  wOpacity: true, // As default it's true.
+  enableOpacityAnimation: true, // optional, defaults to `true`.
   child: BottomNavigationBar(...),
 ),
 ```
