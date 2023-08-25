@@ -11,11 +11,11 @@
   <a href="https://discord.gg/CtStkzrHV3">
     <img src="https://img.shields.io/discord/914899238415130714?color=blue&label=Insolite Community&logo=discord"
       alt="Insolite Community Discord Invite Link" />
-  </a>   
+  </a>
 </p>
 
 ## Installing
-**See the official installing guidline from [hidable/install](https://pub.dev/packages/hidable/install)**
+**See the official installation guidelines at [hidable/install](https://pub.dev/packages/hidable/install)**
 ## Usage & Overview
 
 <img width="300" src="https://user-images.githubusercontent.com/59066341/188278709-d9879bfe-b473-4b2c-b53b-6fbe97d35ad3.gif" alt="Package Example Overview">
@@ -25,7 +25,7 @@ To start using `Hidable` widget, we have to create a `ScrollController`. inctanc
 final ScrollController scrollController = ScrollController();
 ```
 As case of usage, we should have one scrollable widget (SingleChildScrollView, ListView etc)
-and one static located widget (AppBar, BottomNavBar etc) which'd be wrapped with `Hidable` widget.
+and one static located widget (`AppBar`, `BottomNavigationBar`, `FloatingActionButton` and etc) which would be wrapped with `Hidable` widget.
 
 So, `scrollController` which we created before must be given to each one (scrollable widget and static located hidable widget).
 
@@ -48,7 +48,7 @@ ListView.separated(
 ```dart
 Hidable(
   controller: scrollController,
-  wOpacity: true, // As default it's true.
+  enableOpacityAnimation: true, // optional, defaults to `true`.
   child: BottomNavigationBar(...),
 ),
 ```

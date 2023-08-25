@@ -10,14 +10,14 @@ import 'package:hidable/hidable.dart';
 // Just a simple testing utility widget.
 // Used to test, hidable widget and hidable controller.
 class TestWidget extends StatelessWidget {
-  final bool wOpacity;
+  final bool enableOpacityAnimation;
   final ScrollController scrollController;
   final bool wAppBar;
 
   const TestWidget({
     Key? key,
     required this.scrollController,
-    this.wOpacity = true,
+    this.enableOpacityAnimation = true,
     this.wAppBar = false,
   }) : super(key: key);
 
@@ -25,9 +25,7 @@ class TestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: !wAppBar
-            ? null
-            : Hidable(child: AppBar(), controller: scrollController),
+        appBar: !wAppBar ? null : Hidable(child: AppBar(), controller: scrollController),
         body: ListView(
           controller: scrollController,
           children: List.generate(30, (index) => Text('Text $index')).toList(),
@@ -36,7 +34,7 @@ class TestWidget extends StatelessWidget {
             ? null
             : Hidable(
                 controller: scrollController,
-                wOpacity: wOpacity,
+                enableOpacityAnimation: enableOpacityAnimation,
                 child: Container(
                   height: kBottomNavigationBarHeight,
                   color: Colors.black,

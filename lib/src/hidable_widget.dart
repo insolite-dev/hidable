@@ -9,28 +9,34 @@ import 'package:hidable/src/hidable_controller.dart';
 
 /// Hidable is a widget that makes any static located widget hideable while scrolling.
 ///
-/// To Use:
-/// Wrap your static located widget with [Hidable],
-/// then your widget will support scroll to hide/show feature.
+/// To use Hidable, wrap your static located widget with [Hidable].
+/// This will enable scroll-to-hide functionality for the widget.
 ///
-/// Note: scroll controller that you give to [Hidable], also must be given to your scrollable widget,
-/// It could, [ListView], [GridView], etc.
+/// Note: The scroll controller provided to [Hidable] must also be given to your scrollable widget,
+/// such as [ListView], [GridView], etc.
 ///
-/// #### For more information refer to - [documentation](https://github.com/insolite-dev/hidable#readme)
+/// For more information, refer to the [documentation](https://github.com/insolite-dev/hidable#readme).
 class Hidable extends StatelessWidget implements PreferredSizeWidget {
-  /// Child widget, which you want to add scroll-to-hide effect to it.
+  /// The child widget to which you want to add scroll-to-hide effect.
   ///
-  /// It should be static located widget:
-  /// [BottomNavigationBar], [FloatingActionButton], [AppBar] etc.
+  /// This should be a static located widget, such as [BottomNavigationBar], [FloatingActionButton], [AppBar], etc.
   final Widget child;
 
-  /// The main scroll controller to listen user's scrolls.
+  /// The main scroll controller that listens to user's scrolls.
   ///
-  /// It must be given to your scrollable widget.
+  /// This scroll controller must also be provided to your scrollable widget.
   final ScrollController controller;
 
-  /// Enable/Disable opacity animation. As default it's enabled (true).
+  /// Enable or disable opacity animation.
+  ///
+  /// This property is deprecated. Use [enableOpacityAnimation] instead.
+  @Deprecated('Use enableOpacityAnimation instead.')
   final bool wOpacity;
+
+  /// Enable or disable opacity animation.
+  ///
+  /// Defaults to `true`.
+  final bool enableOpacityAnimation;
 
   /// A customization field for [Hidable]'s `preferredSize`.
   ///
@@ -42,7 +48,8 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
     Key? key,
     required this.child,
     required this.controller,
-    this.wOpacity = true,
+    @deprecated this.wOpacity = true,
+    this.enableOpacityAnimation = true,
     this.preferredWidgetSize = const Size.fromHeight(56),
   }) : super(key: key);
 
@@ -51,18 +58,15 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement artificial scroll place to controller it it blocks.
-
-    final hidable = controller.hidable(preferredWidgetSize.height);
-
+    final hidable = controller.hidable(preferredWidgetSize.height, hashCode);
     return ValueListenableBuilder<double>(
-      valueListenable: hidable.sizeNotifier,
+      valueListenable: hidable.visibilityNotifier,
       builder: (_, factor, __) => Align(
         heightFactor: factor,
         alignment: const Alignment(0, -1),
         child: SizedBox(
           height: hidable.size,
-          child: wOpacity ? Opacity(opacity: factor, child: child) : child,
+          child: enableOpacityAnimation ? Opacity(opacity: factor, child: child) : child,
         ),
       ),
     );

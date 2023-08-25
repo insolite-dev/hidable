@@ -23,12 +23,7 @@ class Example extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example> {
-  final colorsPath = [
-    Colors.green,
-    Colors.orangeAccent,
-    Colors.orange,
-    Colors.red
-  ];
+  final colorsPath = [Colors.green, Colors.orangeAccent, Colors.orange, Colors.red];
 
   int index = 0;
 
@@ -65,7 +60,7 @@ class _ExampleState extends State<Example> {
       /// So, now, our [BottomNavigationBar] supports scroll to hide feature.
       bottomNavigationBar: Hidable(
         controller: scrollController,
-        wOpacity: true, // As default it's true
+        enableOpacityAnimation: true, // As default it's true
         child: BottomNavigationBar(
           currentIndex: index,
           onTap: (i) => setState(() => index = i),

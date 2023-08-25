@@ -32,7 +32,7 @@ void main() {
       'should work correctly with [PreferredSizeWidget]',
       (WidgetTester tester) async {
         await tester.pumpWidget(TestWidget(
-                wAppBar: true,
+          wAppBar: true,
           scrollController: scrollController,
         ));
 
