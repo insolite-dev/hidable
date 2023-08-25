@@ -1,3 +1,9 @@
+# v1.0.5 - 25/08/2023
+
+- Resolved [#21](https://github.com/insolite-dev/hidable/issues/21)
+- Deprecate the [wOpacity] property and add new [enableOpacityAnimation]
+  instead.
+
 # v1.0.4 - 14/05/2023
 
 - Migrated to Flutter 3.10 and Dart 3
