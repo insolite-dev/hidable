@@ -44,6 +44,8 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
   /// (56 heights with page-size width).
   final Size preferredWidgetSize;
 
+  final HidableVisibility? hidableVisibility;
+
   const Hidable({
     Key? key,
     required this.child,
@@ -51,6 +53,7 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
     @deprecated this.wOpacity = true,
     this.enableOpacityAnimation = true,
     this.preferredWidgetSize = const Size.fromHeight(56),
+    this.hidableVisibility,
   }) : super(key: key);
 
   @override
@@ -58,7 +61,7 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hidable = controller.hidable(preferredWidgetSize.height, hashCode);
+    final hidable = controller.hidable(preferredWidgetSize.height, hashCode, hidableVisibility);
     return ValueListenableBuilder<double>(
       valueListenable: hidable.visibilityNotifier,
       builder: (_, factor, __) => Align(

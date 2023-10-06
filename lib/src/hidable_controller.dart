@@ -15,7 +15,7 @@ extension HidableControllerExt on ScrollController {
   /// from [hidableControllers].
   ///
   /// Identifys each controller via passed [hashCode] property.
-  HidableController hidable(double size, int hashCode) {
+  HidableController hidable(double size, int hashCode, HidableVisibility? visibility) {
     // If the same instance was created before, we should keep using it.
     if (hidableControllers.containsKey(hashCode)) {
       return hidableControllers[hashCode]!;
@@ -24,9 +24,17 @@ extension HidableControllerExt on ScrollController {
     return hidableControllers[hashCode] = HidableController(
       scrollController: this,
       size: size,
+      hideableVisibility: visibility,
     );
   }
 }
+
+typedef HidableVisibility = double Function(
+  ScrollPosition position,
+  double previousOffset,
+  double currentOffset,
+  double currentVisibility,
+);
 
 /// A custom wrapper for scroll controller.
 ///
@@ -35,25 +43,38 @@ extension HidableControllerExt on ScrollController {
 class HidableController {
   ScrollController scrollController;
   double size;
+  HidableVisibility? hideableVisibility;
+
+  HidableController({
+    required this.scrollController,
+    required this.size,
+    this.hideableVisibility,
+  }) {
+    scrollController.addListener(() => updateVisibility(hideableVisibility));
+  }
+
   double previousOffset = 0.0;
   double visiblePercentage = 1.0;
 
   final visibilityNotifier = ValueNotifier<double>(1.0);
 
-  HidableController({
-    required this.scrollController,
-    required this.size,
-  }) {
-    scrollController.addListener(updateVisibility);
-  }
-
   double calculateVisiblePercentage() => 1.0 - (previousOffset / size);
 
-  void updateVisibility() {
+  void updateVisibility(HidableVisibility? visibility) {
     final position = scrollController.position;
     final currentOffset = position.pixels;
 
     previousOffset = (previousOffset + currentOffset - previousOffset).clamp(0.0, size);
+
+    if (visibility != null) {
+      visibilityNotifier.value = visibility(
+        position,
+        previousOffset,
+        currentOffset,
+        visibilityNotifier.value,
+      );
+      return;
+    }
 
     if (position.axisDirection == AxisDirection.down && position.extentAfter == 0.0) {
       if (visibilityNotifier.value == 0.0) return;
