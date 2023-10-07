@@ -29,6 +29,34 @@ extension HidableControllerExt on ScrollController {
   }
 }
 
+/// Defines a function signature for determining the visibility of a scrollable element
+/// that can be hidden or revealed based on scrolling behavior.
+///
+/// The `HidableVisibility` function takes four parameters:
+/// - `position`: A [ScrollPosition] object representing the current scroll position.
+/// - `previousOffset`: A [double] representing the previous scroll offset before the update.
+/// - `currentOffset`: A [double] representing the current scroll offset after the update.
+/// - `currentVisibility`: A [double] representing the current visibility status, typically
+///   a value between 0.0 (completely hidden) and 1.0 (completely visible).
+///
+/// The function should return a [double] value representing the updated visibility status
+/// of the scrollable element, typically also in the range of 0.0 to 1.0.
+///
+/// Example usage:
+/// ```dart
+/// HidableVisibility myVisibilityFunction(
+///   ScrollPosition position,
+///   double previousOffset,
+///   double currentOffset,
+///   double currentVisibility,
+/// ) {
+///   // Your visibility logic here.
+///   // Return the updated visibility value.
+/// }
+/// ```
+///
+/// This typedef is often used in conjunction with a [HidableController] to define custom
+/// visibility behavior for scrollable elements.
 typedef HidableVisibility = double Function(
   ScrollPosition position,
   double previousOffset,
