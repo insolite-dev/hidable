@@ -44,8 +44,6 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
   /// (56 heights with page-size width).
   final Size preferredWidgetSize;
 
-  /// A custom visibility function for controlling the visibility of the [child] widget.
-  ///
   /// This parameter allows you to define a custom visibility behavior for the [child] widget
   /// based on scrolling actions. You can provide a function of type [HidableVisibility]
   /// to determine when and how the widget should be hidden or revealed during scrolling.
@@ -54,7 +52,7 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
   /// ```dart
   /// Hidable(
   ///   child: MyWidget(),
-  ///   controller: myScrollController,
+  ///   controller: scrollController,
   ///   hidableVisibility: (position, previousOffset, currentOffset, currentVisibility) {
   ///     // Custom visibility logic here.
   ///     // Return the updated visibility value.

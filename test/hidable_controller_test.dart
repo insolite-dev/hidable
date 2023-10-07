@@ -18,22 +18,24 @@ void main() {
 
   setUpAll(() {
     controller = ScrollController();
-    controllerFromHidable = controller.hidable(kSize, 0).scrollController;
+    controllerFromHidable = controller.hidable(kSize, 0, null).scrollController;
   });
 
   group("HidableControllerExt", () {
     test('should generate hidable controller from scroll controller', () {
-      final hidable = controller.hidable(kBottomNavigationBarHeight, 1);
+      final hidable = controller.hidable(kBottomNavigationBarHeight, 1, (p, po, co, cv) {
+        return 1;
+      });
       expect(hidable.runtimeType, HidableController);
 
-      final reCreatedHidable = controller.hidable(kBottomNavigationBarHeight, 1);
+      final reCreatedHidable = controller.hidable(kBottomNavigationBarHeight, 1, null);
       expect(hidable, reCreatedHidable);
     });
   });
 
   group("HidableController", () {
     test('size factor should return right value', () {
-      final hidable = controller.hidable(kSize, 2);
+      final hidable = controller.hidable(kSize, 2, null);
 
       final factor = 1 - (hidable.previousOffset / hidable.size);
       expect(hidable.calculateVisiblePercentage(), factor);
@@ -60,7 +62,7 @@ void main() {
 
     test(
       'close should disable value notifiers correctly',
-      () => controller.hidable(kSize, 3).close(),
+      () => controller.hidable(kSize, 3, null).close(),
     );
   });
 }
