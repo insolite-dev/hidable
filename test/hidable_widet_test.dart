@@ -34,6 +34,9 @@ void main() {
         await tester.pumpWidget(TestWidget(
           wAppBar: true,
           scrollController: scrollController,
+          visibility: (position, current) {
+            return 1;
+          },
         ));
 
         expect(find.byType(Align), findsNWidgets(2));
