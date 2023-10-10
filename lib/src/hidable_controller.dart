@@ -68,7 +68,7 @@ class HidableController {
   HidableController({
     required this.scrollController,
     this.hideableVisibility,
-    this.deltaFactor = 0.08,
+    required this.deltaFactor,
   }) {
     scrollController.addListener(() => updateVisibility(hideableVisibility, deltaFactor));
   }

@@ -74,7 +74,7 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
   /// [child] widget's hiding/revealing behavior more gradual. Conversely, a higher value
   /// makes the change in visibility more immediate.
   ///
-  /// The default value is 0.08, which provides a moderate speed of visibility change.
+  /// The default value is 0.04, which provides a moderate speed of visibility change.
   final double deltaFactor;
 
   const Hidable({
@@ -85,7 +85,7 @@ class Hidable extends StatelessWidget implements PreferredSizeWidget {
     this.enableOpacityAnimation = true,
     this.preferredWidgetSize = const Size.fromHeight(56),
     this.visibility,
-    this.deltaFactor = 0.08,
+    this.deltaFactor = 0.06,
   }) : super(key: key);
 
   @override
