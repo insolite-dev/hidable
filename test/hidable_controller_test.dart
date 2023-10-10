@@ -11,34 +11,27 @@ import 'package:hidable/src/hidable_controller.dart';
 import 'test_widget.dart';
 
 void main() {
-  const kSize = kBottomNavigationBarHeight;
-
   late ScrollController controller;
   late ScrollController controllerFromHidable;
 
   setUpAll(() {
     controller = ScrollController();
-    controllerFromHidable = controller.hidable(kSize, 0).scrollController;
+    controllerFromHidable = controller.hidable(0, null, 0.08).scrollController;
   });
 
   group("HidableControllerExt", () {
     test('should generate hidable controller from scroll controller', () {
-      final hidable = controller.hidable(kBottomNavigationBarHeight, 1);
+      final hidable = controller.hidable(1, (p, cv) {
+        return 1;
+      }, 0.08);
       expect(hidable.runtimeType, HidableController);
 
-      final reCreatedHidable = controller.hidable(kBottomNavigationBarHeight, 1);
+      final reCreatedHidable = controller.hidable(1, null, 0.08);
       expect(hidable, reCreatedHidable);
     });
   });
 
   group("HidableController", () {
-    test('size factor should return right value', () {
-      final hidable = controller.hidable(kSize, 2);
-
-      final factor = 1 - (hidable.previousOffset / hidable.size);
-      expect(hidable.calculateVisiblePercentage(), factor);
-    });
-
     testWidgets(
       'listener should work correctly',
       (WidgetTester tester) async {
@@ -60,7 +53,7 @@ void main() {
 
     test(
       'close should disable value notifiers correctly',
-      () => controller.hidable(kSize, 3).close(),
+      () => controller.hidable(1, null, 0.08).close(),
     );
   });
 }
