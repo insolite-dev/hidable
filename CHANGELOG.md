@@ -1,3 +1,12 @@
+# v1.0.6 - 12/10/2023
+
+- Resolved [#26](https://github.com/insolite-dev/hidable/issues/26)
+- Added `deltaFactor` field which controls the speed of hiding/appearing speed of hidable.
+- Added `visibility` field which makes it able for user to provide custom scrolling algorithm
+  instead of using default.
+
+Huge thanks for feature request to [@radibobovich](https://github.com/radibobovich)
+
 # v1.0.5 - 25/08/2023
 
 - Resolved [#21](https://github.com/insolite-dev/hidable/issues/21)
