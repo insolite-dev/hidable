@@ -1,4 +1,4 @@
-# v1.0.5 - 12/10/2023
+# v1.0.6 - 12/10/2023
 
 - Resolved [#26](https://github.com/insolite-dev/hidable/issues/26)
 - Added `deltaFactor` field which controls the speed of hiding/appearing speed of hidable.
